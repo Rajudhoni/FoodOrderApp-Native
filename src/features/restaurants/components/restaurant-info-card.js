@@ -17,23 +17,35 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
   } = restaurant;
 
   const RestaurantCard = styled(Card)`
-    backgroundColor: white;
+    backgroundColor: ${(props) => props.theme.colors.bg.primary}
   `;
 
   const RestaurantCardCover = styled(Card.Cover)`
     padding: 20px;
-    backgroundColor: white;
+    backgroundColor: ${(props) => props.theme.colors.bg.primary}
   `;
 
+  const Address = styled(Text)`
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.caption};
+`;
+
   const Title = styled(Text)`
-    padding: 16px;
-    color: ${(props) => props.theme.colors.ui.success}
+    fontFamily: ${(props) => props.theme.fonts.heading}
+    fontSize: ${(props) => props.theme.fontSizes.body}
+    color: ${(props) => props.theme.colors.ui.primary}
   `;
+  const Info = styled.View`
+  padding: ${(props) => props.theme.space[3]};
+`;
 
   return (
     <RestaurantCard elevation={5}>
       <RestaurantCardCover source={{ uri: photos[0] }} />
-      <Title>{name}</Title>
+      <Info>
+        <Title>{name}</Title>
+        <Address>{address}</Address>
+      </Info>
     </RestaurantCard>
   );
 };

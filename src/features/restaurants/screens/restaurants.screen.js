@@ -9,16 +9,17 @@ const RestaurantsSreen = () => {
 
     const SafeArea = styled(SafeAreaView)`
         flex: 1;
+        marginTop: ${StatusBar.currentHeight}px;
        
     `;
     const SearchBarContainer = styled(View)`
-        padding: 16px;
+        padding: ${(props) => props.theme.space[3]}
     `;
 
     const RestaurantListContainer = styled(View)`
         flex: 1;
-        padding: 16px;
-        backgroundColor: blue;
+        padding:${(props) => props.theme.space[3]} 
+        backgroundColor: ${(props) => props.theme.colors.brand.primary}
     `;
 
     return (
